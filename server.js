@@ -28,6 +28,19 @@ app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
+// save note on left side, with ID
+app.post("/api/notes", (req, res) => {
+    let savedNotes = JSON.parse(fs.readFileSync("db/db.json", "utf8"));
+    let newNotes = req.body;
+    let notesID = (savedNotes.length).toString();
+    newNotes.id = notesID;
+    savedNotes.push(newNotes);
+
+    fs.writeFileSync("db/db.json", JSON.stringify(savedNotes));
+    console.log(`Note saved. ID ${notesID}. Content:`, newNotes);
+    res.json(savedNotes);
+})
+
 
 // listen for requests
 app.listen(PORT, () => {
