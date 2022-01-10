@@ -3,6 +3,10 @@
 # Note Taker App 
   ![License](https://img.shields.io/badge/license--red)
 
+  # Important Note!
+  
+  * PLEASE use this link to view the live application deployed to Heroku! https://secure-river-69562.herokuapp.com/
+  
   # Description
 
   * Application that was created to make new notes and save them. Application is intended to challenge the developer's express.js skills.
